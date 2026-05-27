@@ -34,8 +34,8 @@ export function extractCollection(payload, resourceName) {
   return []
 }
 
-export async function fetchCollection(resourceName) {
-  const response = await fetch(`${apiBaseUrl}/${resourceName}/`)
+export async function fetchCollection(resourceName, endpointUrl = `${apiBaseUrl}/${resourceName}/`) {
+  const response = await fetch(endpointUrl)
 
   if (!response.ok) {
     throw new Error(`Request failed for ${resourceName}: ${response.status}`)

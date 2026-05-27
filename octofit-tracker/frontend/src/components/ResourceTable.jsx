@@ -18,7 +18,7 @@ function formatValue(value) {
   return String(value)
 }
 
-export function ResourceTable({ resourceName, title, description, columns }) {
+export function ResourceTable({ resourceName, title, description, columns, endpointUrl }) {
   const [records, setRecords] = useState([])
   const [status, setStatus] = useState('loading')
   const [error, setError] = useState('')
@@ -28,7 +28,7 @@ export function ResourceTable({ resourceName, title, description, columns }) {
 
     async function loadRecords() {
       try {
-        const collection = await fetchCollection(resourceName)
+        const collection = await fetchCollection(resourceName, endpointUrl)
 
         if (isCurrent) {
           setRecords(collection)
@@ -47,7 +47,7 @@ export function ResourceTable({ resourceName, title, description, columns }) {
     return () => {
       isCurrent = false
     }
-  }, [resourceName])
+  }, [endpointUrl, resourceName])
 
   return (
     <section className="data-section">
