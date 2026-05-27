@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import { getApiBaseUrl, mongoUri, port } from './config.js';
+import { getApiBaseUrl, port } from './config.js';
+import { mongoUri } from './config/database.js';
 import { activitiesRouter } from './routes/activities.js';
 import { leaderboardRouter } from './routes/leaderboard.js';
 import { teamsRouter } from './routes/teams.js';

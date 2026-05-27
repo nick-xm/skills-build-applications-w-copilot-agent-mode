@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { mongoUri } from '../config.js';
+import { mongoUri } from '../config/database.js';
 import { Activity } from '../models/Activity.js';
 import { LeaderboardEntry } from '../models/LeaderboardEntry.js';
 import { Team } from '../models/Team.js';
