@@ -1,0 +1,8 @@
+import mongoose from 'mongoose';
+export const mongoUri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/octofit_db';
+export function connectToDatabase() {
+    return mongoose.connect(mongoUri);
+}
+export function disconnectFromDatabase() {
+    return mongoose.disconnect();
+}
