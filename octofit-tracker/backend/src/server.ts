@@ -1,7 +1,6 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import { getApiBaseUrl, port } from './config.js';
-import { mongoUri } from './config/database.js';
+import { connectToDatabase } from './config/database.js';
 import { activitiesRouter } from './routes/activities.js';
 import { leaderboardRouter } from './routes/leaderboard.js';
 import { teamsRouter } from './routes/teams.js';
@@ -24,7 +23,7 @@ app.use('/api/workouts', workoutsRouter);
 
 async function start() {
   try {
-    await mongoose.connect(mongoUri);
+    await connectToDatabase();
     app.listen(port, () => {
       console.log(`OctoFit backend listening on http://localhost:${port}`);
     });
